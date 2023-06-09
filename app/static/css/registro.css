@@ -5,24 +5,7 @@
     margin: 0 auto;
 }
 
-
-.header-content{
-    padding-left: 10%;
-    font-family: 'Bebas Neue', sans-serif;
-    color: white;
-    font-size: 90px;
-}
-
-.header-txt h1{
-    font-size: 105px;
-}
-
-.header-txt p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-}
-
-.body{
+.header{
     background-image: linear-gradient(
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)),
@@ -30,21 +13,57 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
+
 }
 
-.separacion{
-    margin-bottom: 5px;
-    margin-left: 30%;
+
+.registro-txt h1{
+    font-size: 105px;
 }
 
-.img{
-    width: 70px;
-    display: flex;
-    flex-direction: column;
+.registro-txt p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
 }
+
+.imagenes{
+    width: 380px;
+    height: 240px;
+}
+
+.nav{
+    color: white;
+}
+
+.nav ul{
+    list-style:none; 
+}
+
+.menu li{
+    display: inline-flex;
+}
+
+.menu{
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+
+
+.menu li img{
+    width: 30px;
+    padding: 2px;
+    display: inline-block;
+}
+
+
+
 
 .boton{
     --glow-color: rgb(217,176,255);
@@ -80,19 +99,7 @@
     transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
 
-button:hover{
-    color: var(--btn-color);
-    background-color: var(--glow-color);
-    box-shadow: 0 0 1em .2em var(--glow-color),
-    0 0 4em 2em var(--glow-spread-color),
-    inset 0 0 .75 .25 var(--glow-color);
-}
 
-button:active { 
-    box-shadow: 0 0 0.6em .25em var(--glow-color),
-    0 0 2.5em 2em var(--glow-spread-color),
-    inset 0 0 .5em .25em var(--glow-color);
-}
 
 footer {
     background-color: rgb(231,206,255);;
@@ -107,3 +114,37 @@ footer {
     color: black;
     font-size: 14px;
 }
+
+
+
+.formulario{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 20px;
+    align-items: center;
+    background-color: rgb(231,206,255);
+    padding: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-radius: 10px;
+}
+
+body{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(../img/fondo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90vh;
+
+    
+
+
+}
+
+
+
