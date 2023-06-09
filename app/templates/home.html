@@ -15,20 +15,16 @@
 <body class="body">
     {% load static %}
     <header class="header">
-        <nav class="nav">
-            <ul class="menu">
-                <li><img src="{% static 'img/spain.png' %}"></li>
-                <li><img src="{% static 'img/br.png' %}"></li>
-                <li><img src="{% static 'img/uk.png' %}"></li>
-            </ul>
-        </nav>
+            <div class="img">
+                <img class="separacion" src="{% static 'img/spain.png' %}">
+                <img class="separacion" src="{% static 'img/br.png' %}">
+                <img class="separacion" src="{% static 'img/uk.png' %}">
+            </div>
         <div class="header-content">
             <div class="header-txt">
                 <h1>Bienvenido a Aerotransfer</h1>
-                <p>En Aerotransfer podras llegar a tu destino de forma segura. ¡Contacta con algun transfer y llega a tu destino!
-                   presiona el boton de abajo para solicitar tu transfer
-                </p>
-
+                <p>En Aerotransfer podras llegar a tu destino de forma segura. ¡Contacta con algun transfer y llega a tu destino!</p>
+                <p>Para reservar tu transfer presiona el boton aqui abajo.</p>
                 <button class="boton">Reserva tu transfer</button>
             </div>
         </div>
