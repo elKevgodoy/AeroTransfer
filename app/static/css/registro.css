@@ -19,6 +19,20 @@
 
 }
 
+.header-content{
+    justify-content: center;
+    padding-top: 3%;
+    margin-bottom: -3%;
+    display: flex;
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    font-size: 200px;
+}
+
+.header-content h1{
+   font-size: 105px;
+}
+
 
 .registro-txt h1{
     font-size: 105px;

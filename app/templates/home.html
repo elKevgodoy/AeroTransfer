@@ -14,7 +14,6 @@
 </head>
 <body class="body">
     {% load static %}
-
             <div class="img">
                 <img class="separacion" src="{% static 'img/spain.png' %}">
                 <img class="separacion" src="{% static 'img/br.png' %}">
@@ -25,7 +24,7 @@
                 <h1>Bienvenido a Aerotransfer</h1>
                 <p>En Aerotransfer podras llegar a tu destino de forma segura. ¡Contacta con algun transfer y llega a tu destino!</p>
                 <p>Para reservar tu transfer presiona el boton aqui abajo.</p>
-                <button class="boton">Reserva tu transfer</button>
+                <a href="{% url 'reserva' %}" class="boton">Reservar</a>
             </div>
         </div>
         
