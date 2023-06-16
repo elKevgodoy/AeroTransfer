@@ -7,4 +7,7 @@ urlpatterns = [
     path('reserva', views.reserva, name='reserva'),
     path('listaTransfers', views.listaTransfers, name='listaTransfers'),
     path('historial_viajes', views.historial_viajes, name='historial_viajes'),
+    path('perfil', views.perfil, name='perfil'),
+    path('loginConductor', views.loginConductor, name='loginConductor'),
+    path('perfilConductor', views.perfilConductor, name='perfilConductor'),
 ]

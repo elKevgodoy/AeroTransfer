@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+</head>
+<body>
+    {% load static %} 
+    <nav class="titulo"> Aerotransfer</nav>
+    <div class="card">
+        <img src="{% static 'img/usuario.png' %}" alt="Perfil de usuario">
+        <h3>Nombre de usuario</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asientos disponibles</th>
+                        <th>Asientos reservados</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Texto de ejemplo</td>
+                        <td>Texto de ejemplo</td>
+                        <td>Texto de ejemplo</td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+      <footer>
+        <div class="footer-content">
+            <p>© 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

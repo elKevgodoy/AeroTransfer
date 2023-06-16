@@ -14,3 +14,12 @@ def listaTransfers(request):
 
 def historial_viajes(request): 
     return render(request, 'historial_viajes.html')
+
+def perfil(request): 
+    return render(request, 'perfil.html')
+
+def loginConductor(request):
+    return render(request, 'loginConductor.html')
+
+def perfilConductor(request):
+    return render(request, 'perfilConductor.html')

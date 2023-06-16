@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body{
-    background-image: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)),
-        url(../img/fondo.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;  
+  background-image:
+      url(../img/fondo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 .titulo{
+    margin-top: 50px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 105px;
     color: white;
@@ -43,7 +42,7 @@ body{
   }
   
   th, td {
-    background-color: rgb(231, 188, 226);
+    background-color: rgb(214, 244, 253);
     text-align: center;
     padding: 10px;
     border-radius: 10px;
@@ -61,16 +60,16 @@ body{
   }
 
   th:nth-child(1){
-    background-color: rgb(218, 175, 193);
+    background-color: rgb(175, 217, 218);
     border: 1px solid black;
   }
 
   th:nth-child(2){
-    background-color: rgb(187, 119, 141);
+    background-color: rgb(119, 187, 187);
     border: 1px solid black;
   }
   th:nth-child(3){
-    background-color: rgb(180, 122, 182);
+    background-color: rgb(141, 185, 179);
     border: 1px solid black;
   }
   
@@ -83,7 +82,7 @@ footer {
     right: 0;
     width: 100%;
     height: 60px;
-    background-color: rgb(231,206,255);
+    background-color: rgb(214, 244, 253);
     color: #fff;
     padding: 20px;
     text-align: center;
