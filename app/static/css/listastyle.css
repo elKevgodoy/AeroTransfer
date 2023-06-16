@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body{
+    background-image: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+        url(../img/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;  
+}
+
+.titulo{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 105px;
+    color: white;
+    text-align: center;
+}
+
+/* .table{
+    background-color: white;
+    width: 26.6%;
+    height: auto;
+    font-size: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table td {
+    margin-left: 2%;
+} */
+
+.table {
+    width: 80%;
+    margin-bottom: 2px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  th, td {
+    background-color: rgb(231, 188, 226);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  
+  tbody, td {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    color: #111;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  th:nth-child(1){
+    background-color: rgb(218, 175, 193);
+    border: 1px solid black;
+  }
+
+  th:nth-child(2){
+    background-color: rgb(187, 119, 141);
+    border: 1px solid black;
+  }
+  th:nth-child(3){
+    background-color: rgb(180, 122, 182);
+    border: 1px solid black;
+  }
+  
+
+footer {
+    margin-top: -10%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(231,206,255);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+
+.footer-content {
+    color: black;
+    font-size: 14px;
+}
+
+.input{
+  text-align: left;
+  padding-left: 10px;
+  width: 20%;
+  margin-left: 10%;
+  border-radius: 15px;
+  height: 30PX;
+  margin-bottom: 10px;
+}

@@ -8,3 +8,9 @@ def registro(request):
 
 def reserva(request): 
     return render(request, 'reserva.html')
+
+def listaTransfers(request): 
+    return render(request, 'listaTransfers.html')
+
+def historial_viajes(request): 
+    return render(request, 'historial_viajes.html')

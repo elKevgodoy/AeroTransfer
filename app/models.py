@@ -25,3 +25,9 @@ class Reserva(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     transfer = models.ForeignKey(Transfer, on_delete=models.CASCADE)
     fecha_reserva = models.DateField()
+
+class HistorialViajes(models.Model):
+    id_Historial = models.AutoField(primary_key=True)
+    fecha= models.DateField()
+    destino= models.CharField(max_length= 100)
+    pasajeros= models.IntegerField()
