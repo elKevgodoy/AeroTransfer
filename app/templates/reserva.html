@@ -21,25 +21,26 @@
 
     <div class="formulario">
         <div>
-            <form>
+            <form method="post" action="/listaTransfers/">
+              {% csrf_token %}
                 <h1>Reserva Transfer</h1>
                 <div class="form-row" >
                   <div class="form-group col-lg-12">
                     <label for="inputCalle">Calle</label>
-                    <input type="text" class="form-control" id="inputCalle" placeholder="Ingresa la calle a la que deseas viajar">
+                    <input type="text" class="form-control" id="inputCalle" name="inputCalle" placeholder="Ingresa la calle a la que deseas viajar">
                   </div>
                   <div class="form-group col-lg-12">
                     <label for="inputNumero">Numero</label>
-                    <input type="number" class="form-control" id="inputNumero" placeholder="Ingrese el número de la calle">
+                    <input type="number" class="form-control" id="inputNumero" name="inputNumero" placeholder="Ingrese el número de la calle">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputCiudad">Ciudad</label>
-                  <input type="text" class="form-control" id="inputCiudad" placeholder="Ingrese la ciudad a la que desea ir">
+                  <input type="text" class="form-control" id="inputCiudad" name="inputCiudad" placeholder="Ingrese la ciudad a la que desea ir">
                 </div>
                 <div class="form-group">
                   <label for="inputPasajeros">Cantidad de pasajeros</label>
-                  <input type="text" class="form-control" id="inputPasajeros" placeholder="Ingrese la cantidad de pasajeros">
+                  <input type="text" class="form-control" id="inputPasajeros" name="inputPasajeros" placeholder="Ingrese la cantidad de pasajeros">
                 </div>
 
                 <br>
