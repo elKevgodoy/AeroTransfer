@@ -1,38 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body{
-  background-image:
-      url(../img/fondo.png);
-  background-repeat: no-repeat;
+  font-size: 16px;
+  background-image: url(../img/fondo.png);
   background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
+  margin: 0;
 }
 
-.titulo{
-    margin-top: 50px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 105px;
-    color: white;
-    text-align: center;
+@media (max-width: 1900px) {
+  body {
+      height: 100vh;
+  }
 }
 
-/* .table{
-    background-color: white;
-    width: 26.6%;
-    height: auto;
-    font-size: 50px;
-    margin-left: 10%;
-    margin-right: 10%;
-    table-layout: fixed;
-    border-collapse: collapse;
-    border: 3px solid black;
-    border-radius: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+/* CODE CSS PARA BODY NO TOCAR */
+
+/* ESTE CODIGO ES PARTE DEL MENU NADA MAS */
+
+.headerMenu{
+  display: flex;
+  height: 50px;
+  background-color: cadetblue;
+  align-items: center;
+  padding: 10px;
 }
 
-.table td {
-    margin-left: 2%;
-} */
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+.headerMenu img{
+  margin: 10px;
+  height: 50px;
+  display: flex;
+}
+
+.headerMenu div{
+  margin-left: auto;
+  visibility: hidden;
+}
+
+.headerMenu h1{
+  display: flex;
+  margin: 10px 40px ;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerMenu nav a{
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: space-between;
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.headerMenu nav a:hover{
+  color: rgb(0, 0, 0);
+}
+
+/* ESTE CODIGO ES PARTE DEL MENU NADA MAS */
+
+/* Codigo de tabla */
 
 .table {
     width: 80%;
@@ -54,7 +91,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f2f2f2;
     color: #111;
-    font-weight: bold;
     padding: 10px;
     border-radius: 10px;
   }
@@ -73,25 +109,7 @@ body{
     border: 1px solid black;
   }
   
-
-footer {
-    margin-top: -10%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 60px;
-    background-color: rgb(214, 244, 253);
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-
-.footer-content {
-    color: black;
-    font-size: 14px;
-}
+  /* Codigo de tabla */
 
 .input{
   text-align: left;
@@ -99,6 +117,45 @@ footer {
   width: 20%;
   margin-left: 10%;
   border-radius: 15px;
-  height: 30PX;
+  height: 40PX;
   margin-bottom: 10px;
 }
+
+.boton{
+  text-align: center;
+  background-color: #0B5ED7;
+  border: #0B5ED7;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  border-radius: 12px;
+  height: 40px;
+}
+.boton:hover{
+  text-align: center;
+  background-color: #0b3a81;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  border-radius: 12px;
+  height: 40px;
+}
+
+  /* Codigo footer que funciona de pana */
+
+footer {
+    bottom: 0;
+    position: fixed;
+    margin: auto;
+    background-color:rgb(214, 244, 253);
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    color: black;
+    font-size: 14px;
+}
+
+ /* Codigo footer que funciona de pana */

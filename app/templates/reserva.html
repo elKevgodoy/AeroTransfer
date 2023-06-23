@@ -17,45 +17,47 @@
   </head>
 {% load static %}
 <body>
-  <header class="header-content">
-    <h1>AeroTransfer</h1>
-</header>
-<div class="body">
-
-    <div class="formulario">
-        <div>
-            <form id="idFormReserva" method="post" action="/listaTransfers/">
-              {% csrf_token %}
-                <h1>Reserva Transfer</h1>
-                <div class="form-row" >
-                  <div class="form-group col-lg-12">
-                    <label for="inputCalle">Calle</label>
-                    <input type="text" class="form-control" id="inputCalle" name="inputCalle" placeholder="Ingresa la calle a la que deseas viajar">
-                  </div>
-                  <div class="form-group col-lg-12">
-                    <label for="inputNumero">Numero</label>
-                    <input type="number" class="form-control" id="inputNumero" name="inputNumero" placeholder="Ingrese el número de la calle">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputCiudad">Ciudad</label>
-                  <input type="text" class="form-control" id="inputCiudad" name="inputCiudad" placeholder="Ingrese la ciudad a la que desea ir">
-                </div>
-                <div class="form-group">
-                  <label for="inputPasajeros">Cantidad de pasajeros</label>
-                  <input type="text" class="form-control" id="inputPasajeros" name="inputPasajeros" placeholder="Ingrese la cantidad de pasajeros">
-                </div>
-
-                <br>
-                <button type="submit" class="btn btn-primary">Consultar transfer</button>
-                <a href="{% url 'home' %}" class="btn btn-primary">Cancelar </a>
-              </form>
-        </div>
-    </div>    
-
-        
-        
+  <header class="headerMenu">
+    <br>
+    <h1 class="titleH1">AeroTransfer</h1>
+    <div>
+        Texto ejemplo
     </div>
+    <nav>
+        <a href="{% url 'home' %}" >Home</a>
+        <a href="{% url 'loginConductor' %}" >Login</a>
+    </nav>
+</header>
+<br>
+      <div class="formulario">
+              <form id="idFormReserva" method="post" action="/listaTransfers/">
+                {% csrf_token %}
+                  <h1>Reserva Transfer</h1>
+                  <div class="form-row" >
+                    <div class="form-group col-lg-12">
+                      <label for="inputCalle">Calle</label>
+                      <input type="text" class="form-control" id="inputCalle" name="inputCalle" placeholder="Ingresa la calle a la que deseas viajar">
+                    </div>
+                    <div class="form-group col-lg-12">
+                      <label for="inputNumero">Numero</label>
+                      <input type="number" class="form-control" id="inputNumero" name="inputNumero" placeholder="Ingrese el número de la calle">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputCiudad">Ciudad</label>
+                    <input type="text" class="form-control" id="inputCiudad" name="inputCiudad" placeholder="Ingrese la ciudad a la que desea ir">
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPasajeros">Cantidad de pasajeros</label>
+                    <input type="text" class="form-control" id="inputPasajeros" name="inputPasajeros" placeholder="Ingrese la cantidad de pasajeros">
+                  </div>
+
+                  <br>
+                  <button type="submit" class="btn btn-primary">Consultar transfer</button>
+                  <a href="{% url 'home' %}" class="btn btn-primary">Cancelar </a>
+                </form>     
+    </div>
+    <br>
     <footer>
       <div class="footer-content">
           <p>© 2023 Mi Sitio Web. Todos los derechos reservados.</p>
