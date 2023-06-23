@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class Totem(models.Model):
@@ -34,26 +35,24 @@ class Conductor(models.Model):
     licencia = models.CharField(max_length=9)
     patente = models.CharField(max_length=6, primary_key=True, verbose_name="Patente")
     asientos = models.IntegerField()
+    asientosdisponibles= models.IntegerField()
     username = models.ForeignKey(User, on_delete=models.CASCADE)
+    tipoauto = models.CharField(max_length=30, verbose_name="Tipo")
+    Disponible = models.BooleanField()
 
     def __str__(self):
         return self.patente
 
 class Reserva(models.Model):
     id_reserva = models.AutoField(primary_key=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    transfer = models.ForeignKey(Transfer, on_delete=models.CASCADE)
-    fecha_reserva = models.DateField()
+    destino = models.CharField(max_length=120, verbose_name="Destino")
+    nombre= models.CharField(max_length=20, verbose_name="Nombre")
+    apellido= models.CharField(max_length=20, verbose_name="Apellido")
+    telefono= models.IntegerField()
+    conductor= models.ForeignKey(Conductor, on_delete=models.CASCADE)
+    asientos = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(15)])
+    correo= models.EmailField()
+    fecha_reserva = models.CharField(max_length=50)
 
-    def __str__(self):
+    def __int__(self):
         return self.id_reserva
-
-class HistorialViajes(models.Model):
-    id_Historial = models.AutoField(primary_key=True)
-    fecha= models.DateField()
-    destino= models.CharField(max_length= 100)
-    pasajeros= models.IntegerField()
-
-    def __str__(self):
-        return self.id_Historial
-

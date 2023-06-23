@@ -19,14 +19,21 @@
                     <th>Nombre</th>
                     <th>Ubicacion</th>
                     <th>Asientos</th>
+                    <th>Reserva</th>
                 </tr>
             </thead>
             <tbody>
                 {% for persona in personas %}
                 <tr>
+                    <form method="post" action="/reservaTransfer/">
+                        {% csrf_token %}
                     <td>{{persona.username.username}}</td>
+                    <input style="display: none;" type="text" name="username" maxlength="150" id="username" class="form-control" value="{{persona.username.username}}">
                     <td>{{persona.patente}}</td>
                     <td>{{persona.asientos}}</td>
+                    <input style="display: none;" type="text" name="destino" maxlength="150" id="destino" class="form-control" value="{{destino}}">
+                    <input style="display: none;" type="text" name="asientos" maxlength="150" id="asientos" class="form-control" value="{{asientos}}">
+                    <td><button type="submit" class="btn btn-primary">Registrarse</button></td>
                 </tr>
                 {% endfor %}
             </tbody>

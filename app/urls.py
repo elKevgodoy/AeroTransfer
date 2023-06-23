@@ -10,4 +10,5 @@ urlpatterns = [
     path('perfil', views.perfil, name='perfil'),
     path('loginConductor', views.loginConductor, name='loginConductor'),
     path('perfilConductor', views.perfilConductor, name='perfilConductor'),
+    path('reservaTransfer/', views.ReservaTransfer, name='reservaTransfer'),
 ]

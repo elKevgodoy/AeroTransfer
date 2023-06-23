@@ -5,7 +5,6 @@ from .models import *
 
 admin.site.register(Conductor)
 admin.site.register(Totem)
-admin.site.register(HistorialViajes)
 admin.site.register(Transfer)
 admin.site.register(Usuario)
 admin.site.register(Reserva)

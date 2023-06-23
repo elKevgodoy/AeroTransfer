@@ -20,13 +20,11 @@
 <div class="body">
 
     <div class="formulario">
+        {% if existe is 1 %}
         <div>
             <form method="post" action="">
               {% csrf_token %}
-                <h1>Registro Transfer</h1>
-                <div>
-                  {{error}}
-                </div>
+                <h1>Registro Transfer {{lista}}</h1>
                 <div class="form-row" >
                   <div class="form-group col-lg-12">
                     <label for="id_first_name">Nombre</label>
@@ -36,40 +34,29 @@
                     <label for="id_last_name">Apellido</label>
                     <input type="text" name="last_name" maxlength="150" id="id_last_name" class="form-control" value="{{apellido}}">
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputLicencia">N° Licencia de Conducir</label>
-                  <input type="number" name="licencia" class="form-control" id="inputLicencia" placeholder="ID de Licencia de Condudir" value="{{licencia}}">
-                </div>
-                <div class="form-group">
-                  <label for="inputPatente">Patente</label>
-                  <input type="text" name="patente" class="form-control" id="inputPatente" placeholder="Ingrese su patente" value="{{patente}}">
-                </div>
-                <div class="form-group">
-                  <label for="inputAsientos">Cantidad de asientos</label>
-                  <input type="number" name="asientos" class="form-control" id="inputAsientos" placeholder="Ingrese su patente" value="{{asientos}}">
-                </div>
-                <div class="form-group">
-                  <label for="inputVehiculo">Tipo Vehiculo</label>
-                  <input type="text" name="vehiculo" class="form-control" id="inputVehiculo" placeholder="Ingrese su tipo de vehiculo" value="{{vehiculo}}">
-                </div>
-                <div class="form-group">
-                  <label for="id_username">Nombre de Usuario</label>
-                  <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" class="form-control" value="{{usuario}}">
-                </div>
-                <div class="form-group">
-                  <label for="id_password1">Contraseña</label>
-                  <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="id_password2">Repita Contraseña</label>
-                  <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" class="form-control">
+                  <div class="form-group col-lg-12">
+                    <label for="email">Correo</label>
+                    <input type="email" name="email" maxlength="150" id="email" class="form-control" value="{{email}}">
+                  </div>
+                  <div class="form-group col-lg-12">
+                    <label for="telefono">Número Telefonico</label>
+                    <input type="number" name="telefono" maxlength="150" id="telefono" class="form-control" value="{{telefono}}">
+                  </div>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <input style="display: none;" type="text" name="username" maxlength="150" id="username" class="form-control" value="{{username}}">
+                <input style="display: none;" type="text" name="destino" maxlength="150" id="destino" class="form-control" value="{{destino}}">
+                <input style="display: none;" type="text" name="asientos" maxlength="150" id="asientos" class="form-control" value="{{asientos}}">
+                <button type="submit" class="btn btn-primary">Ir a Pagar</button>
                 <a href="{% url 'home' %}" class="btn btn-primary">Cancelar </a>
               </form>
         </div>
+        {% else %}
+        <h1>{{error}}</h1>
+        <h2>{{lista}}</h2>
+        <h2>{{destino}}</h2>
+        <h2>{{asientos}}</h2>
+        {% endif %}
     </div>    
 
         
