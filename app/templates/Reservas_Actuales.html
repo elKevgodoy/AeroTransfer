@@ -11,38 +11,41 @@
     {% load static %}
     <header class="headerMenu">
         <br>
-        <h1>AeroTransfer</h1>
-        <div>
-            Texto ejemplo
-        </div>
+        <h1><a href="{% url 'home' %}" style="margin-left: 0px;">AeroTransfer</a></h1>
         <nav>
-            <a href="{% url 'home' %}" >Home</a>
-            <a href="{% url 'loginConductor' %}" >Login</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'perfilConductor' %}" style="text-align: right;">{{user.username}}</a>
+            {% else %}
+                <a href="{% url 'login' %}" >Login</a>
+                <a href="{% url 'registro' %}" >Registro</a>
+            {% endif %}
         </nav>
     </header>
     <br>
-    <input class="input" type="text" id="num_asientos" placeholder="Filtrar por cantidad de asientos">
-    <button type="//" class="boton">Buscar</button>
+    {% if existe is 1 %}
     <main>
         <table class="table">
-            {% if existe is 1 %}
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Ubicacion</th>
+                    <th>Apellido</th>
+                    <th>Destino</th>
+                    <th>Telefono</th>
                     <th>Asientos</th>
-                    <th>Reserva</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
-                {% for persona in personas %}
+                {% for reservas in reserva %}
                 <tr>
                     <form method="post" action="/reservaTransfer/">
                         {% csrf_token %}
-                    <td>{{persona.username.username}}</td>
-                    <input style="display: none;" type="text" name="username" maxlength="150" id="username" class="form-control" value="{{persona.username.username}}">
-                    <td>{{persona.patente}}</td>
-                    <td>{{persona.asientos}}</td>
+                    <td>{{reservas.nombre}}</td>
+                    <td>{{reservas.apellido}}</td>
+                    <td>{{reservas.destino}}</td>
+                    <td>{{reservas.telefono}}</td>
+                    <td>{{reservas.asientos}}</td>
+                    <td>{{reservas.estado}}</td>
                     <input style="display: none;" type="text" name="destino" maxlength="150" id="destino" class="form-control" value="{{destino}}">
                     <input style="display: none;" type="text" name="asientos" maxlength="150" id="asientos" class="form-control" value="{{asientos}}">
                     <td><button type="submit" class="boton">Registrarse</button></td>
@@ -50,8 +53,10 @@
                 {% endfor %}
             </tbody>
             {% else %}
-                <h1>De momento no tienes ninguna reserva activa</h1> 
-                <h3>¡cuando alguien haga una reserva te avisaremos!</h3>
+            <div class="card" style="margin-top: 10%;">
+                <h1 style="text-align: center;">No tienes ninguna reserva activa actualmente</h1>
+                <h3 style="text-align: center;">¡Cuando tengas una reserva te avisaremos!</h3>
+            </div>
             {% endif %}
         </table>
     </main>

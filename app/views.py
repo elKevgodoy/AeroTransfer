@@ -6,9 +6,38 @@ from django.contrib import messages
 from .models import Conductor, Reserva
 from django.contrib.auth.models import User
 from datetime import date
+from django.contrib.auth.decorators import login_required
 
 def home(request): 
     return render(request, 'home.html')
+
+
+
+def login_view(request):
+    datos = {}
+    if request.method == 'POST':
+        try:
+            username = request.POST['usuario']
+            password = request.POST['password']
+            
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                datos['usuario'] = username
+                datos['password'] = password
+                datos['error'] = 'Usuario o contraseña incorrectos'
+                return render(request, 'login.html', datos)
+        
+        except KeyError:
+            return render(request, 'registration/login.html', {'error': 'Datos del formulario incompletos'})
+    else:
+        return render(request, 'registration/login.html')
+    
+
+
 
 def registro(request):
     data = {
@@ -90,7 +119,7 @@ def ReservaTransfer(request):
         datos['persona']=conductor
         if int(asientos) > int(conductor.asientosdisponibles): #Esto en el caso de que al último momento otro pasajero reserve con dicho conductor
             datos['existe']=0
-            datos['error'] = 'Lo sentimos, al parecer el conductor ya tiene sus asientos ocupados. Intentalo nuevamente error 1'
+            datos['error'] = 'Lo sentimos, al parecer el conductor ya tiene sus asientos ocupados. Intentalo nuevamente Error 1 '
             return render(request, 'Registro_Reserva.html',datos)
         else: #En caso de que si existan asientos disponibles en base a los asientos requeridos
             datos['existe']=1
@@ -104,15 +133,18 @@ def ReservaTransfer(request):
                 id=id+1
                 fecha=str(date.today())
                 Reserva.objects.create(id_reserva=id, destino=destino, nombre=nombre, apellido=apellido, telefono=numero, conductor=conductor, \
-                                       asientos=asientos, correo=correo, fecha_reserva=fecha)
+                                       asientos=asientos, correo=correo, fecha_reserva=fecha, estado=True)
+                cantasientos=conductor.asientosdisponibles
+                conductor.asientosdisponibles=int(cantasientos)-int(asientos)
+                conductor.save()
                 return redirect(to="home")
             except: 
-                datos['error'] = 'Lo sentimos, al parecer el conductor ya tiene sus asientos ocupados. Intentalo nuevamente error 3' 
+                datos['error'] = 'Lo sentimos, al parecer el conductor ya tiene sus asientos ocupados. Intentalo nuevamente Error 2' 
                 return render(request, 'Registro_Reserva.html',datos)  
 
     except:
         datos['existe']=0
-        datos['error'] = 'Parecer ser que ha ocurrido un error, intentelo nuevamente. error 2 '
+        datos['error'] = 'Parecer ser que ha ocurrido un error, intentelo nuevamente. error 3 '
         return render(request, 'Registro_Reserva.html',datos)
     
 
@@ -127,5 +159,39 @@ def perfil(request):
 def loginConductor(request):
     return render(request, 'loginConductor.html')
 
+
+
+@login_required(login_url='/accounts/login/')
 def perfilConductor(request):
-    return render(request, 'perfilConductor.html')
+    datos={} 
+    datos['persona']=conductor=Conductor.objects.get(username=request.user)
+    if request.method=='POST':
+        if 'disponibilidad' in request.POST:
+            conductor.Disponible=True
+            conductor.save()
+            datos['mensaje']="Disponibilidad cambiada correctamente"
+            return render(request, 'perfilConductor.html', datos)
+        else:
+            conductor.Disponible=False
+            conductor.save()
+            datos['mensaje']="Disponibilidad cambiada correctamente"
+            return render(request, 'perfilConductor.html', datos)
+    else:
+        return render(request, 'perfilConductor.html', datos)
+    
+
+
+
+
+@login_required(login_url='/accounts/login/')
+def reservas_actuales(request):
+    try:
+        datos={}
+        conductor=Conductor.objects.get(username=request.user)
+        datos['reserva']=Reserva.objects.filter(conductor=conductor, estado=True)
+        datos['existe']=1
+        return render(request, 'Reservas_Actuales.html',datos)
+
+    except:
+        datos['existe']=0
+        return render(request, 'Reservas_Actuales.html',datos)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Login - MusicPRO</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    .error-label {
+        color: red;
+        text-align: center;
+    }
+    .register-label{
+        background-color: rgb(68, 207, 93);
+        text-align: center;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    {% load static %}
+    <div id="contenedor">
+        <div id="central">
+            <div id="login">
+                {% if mensaje %}
+                <div class="register-label">
+                    {{mensaje}}
+                </div>
+                {% endif %}
+                <div class="titulo">
+                    Bienvenido a MusicPRO
+                </div>
+                <form id="loginform" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" title="Ingresar" name="Ingresar">Iniciar sesión</button>
+                </form>
+                <div class="pie-form">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    <a href="{% url 'registro' %}">¿No tienes Cuenta? Registrate</a>
+                </div>
+            </div>
+            <div class="inferior">
+                <a href="#">Volver</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

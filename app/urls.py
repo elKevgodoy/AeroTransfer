@@ -11,4 +11,6 @@ urlpatterns = [
     path('loginConductor', views.loginConductor, name='loginConductor'),
     path('perfilConductor', views.perfilConductor, name='perfilConductor'),
     path('reservaTransfer/', views.ReservaTransfer, name='reservaTransfer'),
+    path('login/', views.login_view, name='login'),
+    path('reservasActuales/', views.reservas_actuales, name='ReservasActuales'),
 ]

@@ -53,6 +53,7 @@ class Reserva(models.Model):
     asientos = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(15)])
     correo= models.EmailField()
     fecha_reserva = models.CharField(max_length=50)
+    estado= models.BooleanField()
 
     def __int__(self):
         return self.id_reserva
