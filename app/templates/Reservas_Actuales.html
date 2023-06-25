@@ -33,6 +33,7 @@
                     <th>Telefono</th>
                     <th>Asientos</th>
                     <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,10 +46,13 @@
                     <td>{{reservas.destino}}</td>
                     <td>{{reservas.telefono}}</td>
                     <td>{{reservas.asientos}}</td>
-                    <td>{{reservas.estado}}</td>
+                    {% if reservas.estado is True%}
+                    <td>Activo</td>
+                    {% endif %}
+
                     <input style="display: none;" type="text" name="destino" maxlength="150" id="destino" class="form-control" value="{{destino}}">
                     <input style="display: none;" type="text" name="asientos" maxlength="150" id="asientos" class="form-control" value="{{asientos}}">
-                    <td><button type="submit" class="boton">Registrarse</button></td>
+                    <td><button type="submit" class="boton">Cancelar Reserva</button></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -28,9 +28,9 @@
             {% if existe is 1 %}
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Ubicacion</th>
-                    <th>Asientos</th>
+                    <th>Nombre de Conductor</th>
+                    <th>Tipo de Vehiculo</th>
+                    <th>Asientos Disponibles</th>
                     <th>Reserva</th>
                 </tr>
             </thead>
@@ -41,17 +41,19 @@
                         {% csrf_token %}
                     <td>{{persona.username.username}}</td>
                     <input style="display: none;" type="text" name="username" maxlength="150" id="username" class="form-control" value="{{persona.username.username}}">
-                    <td>{{persona.patente}}</td>
+                    <td>{{persona.tipoauto}}</td>
                     <td>{{persona.asientos}}</td>
                     <input style="display: none;" type="text" name="destino" maxlength="150" id="destino" class="form-control" value="{{destino}}">
                     <input style="display: none;" type="text" name="asientos" maxlength="150" id="asientos" class="form-control" value="{{asientos}}">
-                    <td><button type="submit" class="boton">Registrarse</button></td>
+                    <td><button type="submit" class="boton">Reservar</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
             {% else %}
-                <h1>De momento no tienes ninguna reserva activa</h1> 
-                <h3>¡cuando alguien haga una reserva te avisaremos!</h3>
+            <div class="card" style="margin-top: 10%;">
+                <h1 style="text-align: center;">De momento no hay ningún transfer disponible</h1>
+                <h3 style="text-align: center;">Intentalo nuevamente más tarde</h3>
+            </div>
             {% endif %}
         </table>
     </main>

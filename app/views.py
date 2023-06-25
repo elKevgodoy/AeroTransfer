@@ -7,6 +7,7 @@ from .models import Conductor, Reserva
 from django.contrib.auth.models import User
 from datetime import date
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def home(request): 
     return render(request, 'home.html')
@@ -137,6 +138,8 @@ def ReservaTransfer(request):
                 cantasientos=conductor.asientosdisponibles
                 conductor.asientosdisponibles=int(cantasientos)-int(asientos)
                 conductor.save()
+                mensaje="¡El conductor se pondrá en contacto contigo dentro de poco! ID Reserva:"+str(id)
+                messages.success(request, mensaje)
                 return redirect(to="home")
             except: 
                 datos['error'] = 'Lo sentimos, al parecer el conductor ya tiene sus asientos ocupados. Intentalo nuevamente Error 2' 
@@ -195,3 +198,7 @@ def reservas_actuales(request):
     except:
         datos['existe']=0
         return render(request, 'Reservas_Actuales.html',datos)
+
+
+
+    
